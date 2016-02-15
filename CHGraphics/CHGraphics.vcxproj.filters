@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Source\win32main.cpp" />
+    <ClCompile Include="Source\CHGraphics.cpp" />
+    <ClCompile Include="Source\Win32Clock.cpp" />
+    <ClCompile Include="Source\OBJLoader.cpp" />
+    <ClCompile Include="Source\Core\Math.cpp" />
+    <ClCompile Include="Source\Core\String.cpp" />
+    <ClCompile Include="Source\Lightning.cpp" />
+    <ClCompile Include="Source\CHEngine.cpp" />
+    <ClCompile Include="Source\CHWin32.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\CHGraphics.h" />
+    <ClInclude Include="Source\Def.h" />
+    <ClInclude Include="Source\Win32Clock.h" />
+    <ClInclude Include="Source\OBJLoader.h" />
+    <ClInclude Include="Source\Core\Def.h" />
+    <ClInclude Include="Source\Core\Math.h" />
+    <ClInclude Include="Source\Core\String.h" />
+    <ClInclude Include="Source\Lightning.h" />
+    <ClInclude Include="Source\CHEngine.h" />
+    <ClInclude Include="Source\CHWin32.h" />
+    <ClInclude Include="Source\CHDef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Source\PixelShader.hlsl" />
+    <FxCompile Include="Source\QuadVertexShader.hlsl" />
+    <FxCompile Include="Source\QuadPixelShader.hlsl" />
+    <FxCompile Include="Source\TextureDisplayPixelShader.hlsl" />
+    <FxCompile Include="Sources\FXAAPixelShader.hlsl" />
+    <FxCompile Include="Sources\SDFLightning.hlsl" />
+    <FxCompile Include="Source\LightPassPixelShader.hlsl" />
+    <FxCompile Include="Source\RenderPassVS.hlsl" />
+    <FxCompile Include="Source\RenderPassPS.hlsl" />
+    <FxCompile Include="Source\ShadowMapDirVS.hlsl" />
+    <FxCompile Include="Source\ShadowMapPointVS.hlsl" />
+    <FxCompile Include="Source\ShadowMapPointPS.hlsl" />
+  </ItemGroup>
+</Project>
