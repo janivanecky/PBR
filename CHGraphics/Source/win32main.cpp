@@ -37,9 +37,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Engine engine = CHEngine::GetEngine(&window);
 	Scene3D scene = CHEngine::GetScene(&engine);
 
-	Mesh model = CHEngine::GetMeshFromFile(&window, L"sphere.obj");
-	Mesh floor = CHEngine::GetMeshFromFile(&window, L"plane.obj");
-	Mesh cube = CHEngine::GetMeshFromFile(&window, L"cube.obj");
+	Mesh model = CHEngine::GetMeshFromFile(&window, L"sphere.object");
+	Mesh floor = CHEngine::GetMeshFromFile(&window, L"plane.object");
+	Mesh cube = CHEngine::GetMeshFromFile(&window, L"cube.object");
 
 	CameraPolar camera = CHEngine::GetCameraPolar(&engine);
 	CHEngine::SetSceneCamera(&scene, &camera);
@@ -61,20 +61,40 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	float *smokeSize = new float[150];
 	uint32 smokeCounters[15] = { 0 };
 
-	for (int i = 0; i < 90; ++i)
+	for (int i = 0; i < 15; ++i)
 	{
-		positions[i] = Vector3(0,0,0);
+		rockPos[i] = Vector3(0, 0, 0);
+		float randomPolar = (rand() % 1000) / 1000.0f * (PIHALF - 0.8f) + 0.4f;
+		float randomAzimuth = (rand() % 1000) / 1000.0f * PI2;
+		float randomSpeed = (rand() % 1000) / 1000.0f * 280.0f + 40.0f;
+		rockVel[i] = Vector3(Math::Cos(randomAzimuth) * Math::Sin(randomPolar), Math::Cos(randomPolar), Math::Sin(randomAzimuth) * Math::Sin(randomPolar)) * randomSpeed;
+		rockSize[i] = (rand() % 1000) / 1000.0f * .5f + 0.2f;
+		smokeCounters[i] = 0;
+	}
+	for (int i = 0; i < 590; ++i)
+	{
+		positions[i] = Vector3(0, 0, 0);
 		float randomPolar = (rand() % 1000) / 1000.0f * PIHALF;
 		float randomAzimuth = (rand() % 1000) / 1000.0f * PI2;
-		velocity[i] = Vector3(Math::Cos(randomAzimuth) * Math::Sin(randomPolar), Math::Cos(randomPolar), Math::Sin(randomAzimuth) * Math::Sin(randomPolar));
+		float randomSpeed = (rand() % 1000) / 1000.0f * 250.0f + 1.0f;
+		colors[i] = Color(1.0f, 0, 0, 1.0f);
+		colors[i].g = (rand() % 1000) / 1000.0f * 1.0f;// * 0.1f;
 		temp[i] = 1.0f;
+		velocity[i] = Vector3(Math::Cos(randomAzimuth) * Math::Sin(randomPolar), Math::Cos(randomPolar), Math::Sin(randomAzimuth) * Math::Sin(randomPolar)) * randomSpeed;
+		weight[i] = (rand() % 1000) / 1000.0f;
+		weight[i] *= weight[i];
+		scales[i] = (rand() % 1000) / 1000.0f * 3.5f + 1.0f;
+	}
+	for (int i = 0; i < 150; ++i)
+	{
+		smokeSize[i] = 0.0f;
 	}
 
 	float time = 0;
 
 	Vector3 vortex = Vector3(0, 1, 0);
-	Vector3 pos = Vector3(30, 30, 0);
-	Vector3 vel = Vector3(-10.0f, -10.0f, 0.0f);
+	Vector3 pos = Vector3(80, 80, 0);
+	Vector3 vel = Vector3(-100.0f, -100.0f, 0.0f);
 
 	Input input = { 0 };
 	bool spawn = false;

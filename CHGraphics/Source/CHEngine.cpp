@@ -332,7 +332,7 @@ void CHEngine::PresentScene(Engine *engine, Scene3D *scene)
 CameraPolar CHEngine::GetCameraPolar(Engine *engine)
 {
 	CameraPolar camera;
-	camera.distance = 10.0f;
+	camera.distance = 90.0f;
 	camera.polar = 1.0f; 
 	camera.azimuth = 0.0f;
 	camera.projection = 

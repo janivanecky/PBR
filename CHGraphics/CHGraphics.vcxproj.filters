@@ -29,13 +29,13 @@
     <FxCompile Include="Source\QuadVertexShader.hlsl" />
     <FxCompile Include="Source\QuadPixelShader.hlsl" />
     <FxCompile Include="Source\TextureDisplayPixelShader.hlsl" />
-    <FxCompile Include="Sources\FXAAPixelShader.hlsl" />
-    <FxCompile Include="Sources\SDFLightning.hlsl" />
     <FxCompile Include="Source\LightPassPixelShader.hlsl" />
     <FxCompile Include="Source\RenderPassVS.hlsl" />
     <FxCompile Include="Source\RenderPassPS.hlsl" />
     <FxCompile Include="Source\ShadowMapDirVS.hlsl" />
     <FxCompile Include="Source\ShadowMapPointVS.hlsl" />
     <FxCompile Include="Source\ShadowMapPointPS.hlsl" />
+    <FxCompile Include="Source\FXAAPixelShader.hlsl" />
+    <FxCompile Include="Source\SDFLightning.hlsl" />
   </ItemGroup>
 </Project>
